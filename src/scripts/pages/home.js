@@ -1,3 +1,8 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import photographerFactory from '../factories/photographer';
+import './../../css/style.css';
+
 async function getPhotographers() {
   // Penser à remplacer par les données récupérées dans le json
   const photographers = [
@@ -36,7 +41,7 @@ async function displayData(photographers) {
   });
 }
 
-async function init() {
+export default async function init() {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
   displayData(photographers);

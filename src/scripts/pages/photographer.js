@@ -1,1 +1,3 @@
-//Mettre le code JavaScript lié à la page photographer.html
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import './../../css/photographer.css';
