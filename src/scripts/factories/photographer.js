@@ -5,9 +5,12 @@ export default function photographerFactory(data) {
   const picture = `./assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
-    const article = createElement('article', null);
+    const article = createElement('a', null, null, [
+      { name: 'href', value: `./photographer.html?id=${id}` },
+    ]);
     const img = createElement('img', null, 'photographer_img', [
       { name: 'src', value: picture },
+      { name: 'alt', value: `photo de ${name}` },
     ]);
     const h2 = createElement('h2', name, 'photographer_name');
     const ville = createElement(
@@ -21,7 +24,6 @@ export default function photographerFactory(data) {
       'photographer_description'
     );
     const prix = createElement('p', `${price} €`, 'photographer_price');
-
     article.appendChild(img);
     article.appendChild(h2);
     article.appendChild(description);
