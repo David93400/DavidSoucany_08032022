@@ -1,4 +1,4 @@
-#contact_modal {
+#contact-modal {
   display: none;
 }
 a {
@@ -9,7 +9,6 @@ a {
 body {
   font-family: 'DM Sans', sans-serif;
   margin: 0;
-  background-color: #f1f1f1;
 }
 .logo {
   height: 50px;
@@ -22,44 +21,98 @@ header {
   align-items: center;
   height: 90px;
   width: 100%;
-  background-color: #f0e8e8;
-  box-shadow: black 0px 0px 10px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
+  background-color: white;
 }
 
 .photograph-header {
-  background-color: #f1f1f1;
+  background-color: white;
   height: 300px;
-  margin: 120px 100px;
-}
-.photograph-portrait {
-  width: 400px;
-  height: 300px;
-  border-radius: 50%;
+  margin: 50px 100px 100px 120px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-.photograph-portrait article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.photographer-name {
+  font-weight: 400;
+  color: #d3573c;
+  font-size: 50px;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+.photographer-city {
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #901c1c;
 }
 
-.contact_button {
+.photograph-medias {
+  /* display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 100px; */
+  margin: 100px 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.photo-container,
+.video-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+}
+.photo,
+.video {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.photo-title,
+.video-title {
+  color: #901c1c;
+  width: 80%;
+  margin: auto;
+  font-size: 1.2rem;
+  align-self: start;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.photo-likes,
+.video-likes {
+  margin: 0px;
+}
+i {
+  margin-left: 5px;
+}
+
+.photograph-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.contact-button {
   font-size: 17px;
   font-weight: bold;
   color: white;
   padding: 11px;
-  width: 170px;
-  height: 50px;
+  width: 140px;
+  height: 60px;
   border: none;
   background-color: #901c1c;
-  border-radius: 30px;
+  border-radius: 5px;
+  position: absolute;
+  top: 240px;
+  right: 45%;
+  z-index: 1;
   cursor: pointer;
-  margin-bottom: 30px;
 }
 
 .modal {
@@ -73,12 +126,14 @@ header {
   padding: 35px;
   margin: auto;
 }
-.photographer_img {
-  width: 300px;
+.photographer-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: black 0px 0px 10px;
-  cursor: auto !important;
+  position: absolute;
+  top: 160px;
+  right: 145px;
 }
 
 .modal header {
@@ -121,4 +176,20 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+.photographer-price {
+  position: sticky;
+  bottom: 0px;
+  right: 10px;
+  margin-left: 80%;
+  padding: 10px;
+  width: 300px;
+  background-color: #db8876;
+  text-align: center;
+  font-size: 1.1rem;
+  clear: both;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
 }

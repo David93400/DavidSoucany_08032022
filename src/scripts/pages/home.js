@@ -5,7 +5,7 @@ import './../../css/style.css';
 import { getFetch } from '../utils/helpers';
 
 async function getPhotographers() {
-  const data = await getFetch('./data/photographers.json', 'GET');
+  const data = await getFetch('./data/photographers.json');
   const photographers = data.photographers;
   console.log(photographers);
   return {
@@ -13,7 +13,7 @@ async function getPhotographers() {
   };
 }
 async function displayData(photographers) {
-  const photographersSection = document.querySelector('.photographer_section');
+  const photographersSection = document.querySelector('.photographer-section');
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
@@ -23,8 +23,8 @@ async function displayData(photographers) {
 }
 
 export default async function init() {
-  // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
+  console.log(photographers);
   displayData(photographers);
 }
 

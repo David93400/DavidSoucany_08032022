@@ -1,5 +1,5 @@
 //  create fetch function
-const getFetch = async (url, method, body) => {
+const getFetch = async (url, method = 'GET', body) => {
   try {
     const response = await fetch(url, {
       method,
@@ -8,18 +8,25 @@ const getFetch = async (url, method, body) => {
     const responseData = await response.json();
     return responseData;
   } catch (error) {
+    document.querySelector('.fetch-error').textContent =
+      "Une erreur s'est produite lors du chargement des données, veuillez réessayer plus tard";
     return console.log(error);
   }
 };
 
 // create DOM element
-const createElement = (type, text, classname, attributes = []) => {
+const createGenericElement = (
+  type,
+  text = '',
+  className = '',
+  attributes = []
+) => {
   const element = document.createElement(type);
   if (text) {
     element.textContent = text;
   }
-  if (classname) {
-    element.classList.add(classname);
+  if (className) {
+    element.className = className;
   }
   if (attributes) {
     attributes.forEach((attribute) => {
@@ -28,5 +35,12 @@ const createElement = (type, text, classname, attributes = []) => {
   }
   return element;
 };
+const countTotalLikes = (data) => {
+  let likes = 0;
+  data.forEach((media) => {
+    likes += media.likes;
+  });
+  return ` ${likes} <i class="fa-solid fa-heart"></i>`;
+};
 
-export { getFetch, createElement };
+export { getFetch, createGenericElement, countTotalLikes };

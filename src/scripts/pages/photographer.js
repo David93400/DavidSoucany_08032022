@@ -1,12 +1,14 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import './../../css/photographer.css';
-import './../../css/style.css';
-import { getFetch, createElement } from '../utils/helpers';
-// import { displayModal, closeModal } from '../utils/contactForm';
+import {
+  getFetch,
+  createElement,
+  countTotalLikes,
+  createGenericElement,
+} from '../utils/helpers';
 import photographerFactory from '../factories/photographer';
-import testFactory from '../factories/test';
-
+import mediaFactory from '../factories/mediaFactory';
 let params = new URLSearchParams(window.location.search);
 let id = params.get('id'); // Récupère l'id du photographe
 
@@ -23,23 +25,36 @@ async function getMedia() {
   const photographerMedia = data.media.filter(
     (media) => media.photographerId == id
   );
-  return [photographerMedia];
+  // console.log(photographerMedia);
+  return photographerMedia;
 }
 
-getPhotographer();
 getMedia();
 
-async function displayData(photographerInfo) {
-  const photographerSection = document.querySelector('.photograph-portrait');
-  const photographerModel = testFactory(photographerInfo);
+async function displayPhotographerData(photographerInfo) {
+  const photographerSection = document.querySelector('.photograph-header');
+  const photographerModel = photographerFactory(photographerInfo);
   const userCardDOM = photographerModel.getUserCardDOM();
   photographerSection.appendChild(userCardDOM);
 }
 
-export default async function test() {
-  // Récupère les datas des photographes
-  const photographer = await getPhotographer();
-  // console.log(photographer);
-  displayData(photographer);
+async function displayMedia(photographerMedia) {
+  const mediaSection = document.querySelector('.photograph-medias');
+  photographerMedia.forEach((media) => {
+    const mediaModel = mediaFactory(media);
+    const mediaCardDOM = mediaModel.getCardDOM();
+    mediaSection.appendChild(mediaCardDOM);
+  });
+  const encart = document.querySelector('.photographer-price');
+  const likes = countTotalLikes(photographerMedia);
+  encart.innerHTML += likes;
 }
-test();
+
+export default async function init() {
+  const photographer = await getPhotographer();
+  displayPhotographerData(photographer?.[0] || []);
+  const media = await getMedia();
+  console.log(media);
+  displayMedia(media);
+}
+init();

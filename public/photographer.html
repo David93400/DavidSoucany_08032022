@@ -8,6 +8,13 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -18,14 +25,13 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <div class="photograph-portrait">
-          <button class="contact_button" onclick="displayModal()">
-            Contactez-moi
-          </button>
-        </div>
+        <button class="contact-button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
+      <div class="photograph-medias"></div>
     </main>
-    <div id="contact_modal">
+    <div id="contact-modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
@@ -36,10 +42,10 @@
             <label>Prénom</label>
             <input />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact-button">Envoyer</button>
         </form>
       </div>
     </div>
-    <script src="photographer.bundle.js"></script>
+    <script src="./photographer.bundle.js"></script>
   </body>
 </html>
