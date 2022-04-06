@@ -6,6 +6,10 @@ a {
   color: #000;
 }
 
+i {
+  padding-left: 5px;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   margin: 0;
@@ -69,6 +73,34 @@ header {
   width: 400px;
   height: 400px;
   object-fit: cover;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 80vh;
+}
+
+.photo-modal {
+  width: auto;
+  height: 100%;
+  cursor: auto !important;
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  z-index: 5;
+  color: #901c1c;
+  font-size: 60px;
+  margin: 30px;
+}
+.next {
+  position: relative;
+  right: 35px;
 }
 
 .photo-title,
@@ -184,7 +216,7 @@ form input {
   right: 10px;
   margin-left: 80%;
   padding: 10px;
-  width: 300px;
+  width: 225px;
   background-color: #db8876;
   text-align: center;
   font-size: 1.1rem;
@@ -192,4 +224,47 @@ form input {
   display: flex;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* The Modal (background) */
+.modalPicture {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: white;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  height: auto;
+  max-width: 1200px;
+}
+
+.close {
+  position: relative;
+  bottom: 48%;
+  right: -10px;
+  color: #901c1c;
+  font-size: 40px;
+}
+
+.close:hover,
+.close:focus,
+.next:hover,
+.next:focus,
+.prev:hover,
+.prev:focus {
+  opacity: 0.5;
+  text-decoration: none;
+  cursor: pointer;
 }

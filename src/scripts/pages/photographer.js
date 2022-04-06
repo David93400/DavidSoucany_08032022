@@ -1,14 +1,10 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import './../../css/photographer.css';
-import {
-  getFetch,
-  createElement,
-  countTotalLikes,
-  createGenericElement,
-} from '../utils/helpers';
+import { getFetch, countTotalLikes } from '../utils/helpers';
 import photographerFactory from '../factories/photographer';
 import mediaFactory from '../factories/mediaFactory';
+import { closeContactModal, openContactModal } from '../utils/contactForm';
 let params = new URLSearchParams(window.location.search);
 let id = params.get('id'); // Récupère l'id du photographe
 
@@ -29,8 +25,6 @@ async function getMedia() {
   return photographerMedia;
 }
 
-getMedia();
-
 async function displayPhotographerData(photographerInfo) {
   const photographerSection = document.querySelector('.photograph-header');
   const photographerModel = photographerFactory(photographerInfo);
@@ -47,7 +41,16 @@ async function displayMedia(photographerMedia) {
   });
   const encart = document.querySelector('.photographer-price');
   const likes = countTotalLikes(photographerMedia);
-  encart.innerHTML += likes;
+  encart.innerHTML += ` | Likes : ${likes}`;
+  const contact = document.querySelector('.contact-button');
+  contact.onclick = () => {
+    openContactModal();
+  };
+  const closeContact = document.querySelector('.close-contact');
+  closeContact.onclick = () => {
+    console.log(closeContact);
+    closeContactModal();
+  };
 }
 
 export default async function init() {

@@ -43,4 +43,19 @@ const countTotalLikes = (data) => {
   return ` ${likes} <i class="fa-solid fa-heart"></i>`;
 };
 
-export { getFetch, createGenericElement, countTotalLikes };
+function openPictureModal() {
+  document.getElementById('myModal').style.display = 'block';
+}
+
+function closePictureModal() {
+  document.getElementById('myModal').style.display = 'none';
+  document.querySelector('.mySlides').innerHTML = '';
+}
+
+export {
+  getFetch,
+  createGenericElement,
+  countTotalLikes,
+  openPictureModal,
+  closePictureModal,
+};

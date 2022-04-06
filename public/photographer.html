@@ -25,17 +25,20 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact-button" onclick="displayModal()">
-          Contactez-moi
-        </button>
+        <button class="contact-button">Contactez-moi</button>
       </div>
       <div class="photograph-medias"></div>
     </main>
+    <div id="myModal" class="modalPicture">
+      <div class="modal-content">
+        <div class="mySlides"></div>
+      </div>
+    </div>
     <div id="contact-modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img class="close-contact" src="assets/icons/close.png" />
         </header>
         <form>
           <div>

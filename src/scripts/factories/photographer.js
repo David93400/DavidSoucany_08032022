@@ -33,7 +33,7 @@ export default function photographerFactory(data) {
     );
     const prix = createGenericElement(
       'p',
-      `${price}€ / jour`,
+      `${price}€ / jour `,
       'photographer-price'
     );
 
