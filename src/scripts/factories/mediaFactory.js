@@ -1,13 +1,13 @@
-import photoFactory from './photo';
-import videoFactory from './video';
+import photoFactory from './photoFactory';
+import videoFactory from './videoFactory';
 
-const mediaFactory = (data) => {
-  if (data.hasOwnProperty('image')) {
-    return photoFactory(data);
+const mediaFactory = (media, i) => {
+  if (media.hasOwnProperty('image')) {
+    return photoFactory(media, i);
   }
 
-  if (data.hasOwnProperty('video')) {
-    return videoFactory(data);
+  if (media.hasOwnProperty('video')) {
+    return videoFactory(media, i);
   }
 };
 

@@ -1,11 +1,11 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import photographerFactory from '../factories/photographer';
+import photographerFactory from '../factories/photographerFactory';
 import './../../css/style.css';
-import { getFetch } from '../utils/helpers';
+import { customFetch } from '../utils/helpers';
 
 async function getPhotographers() {
-  const data = await getFetch('./data/photographers.json');
+  const data = await customFetch('./data/photographers.json');
   const photographers = data.photographers;
   console.log(photographers);
   return {
@@ -24,8 +24,6 @@ async function displayData(photographers) {
 
 export default async function init() {
   const { photographers } = await getPhotographers();
-  console.log(photographers);
   displayData(photographers);
 }
-
 init();

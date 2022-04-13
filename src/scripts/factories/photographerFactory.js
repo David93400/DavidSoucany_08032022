@@ -1,11 +1,10 @@
-import { countTotalLikes, createGenericElement } from '../utils/helpers';
+import { createGenericElement } from '../utils/helpers';
 
 export default function photographerFactory(data) {
   const { name, portrait, tagline, city, id, country, price } = data;
   const picture = `./assets/photographers/${portrait}`;
   let params = new URLSearchParams(window.location.search);
   let photographerId = params.get('id'); // Récupère l'id du photographe
-  console.log(data);
   function getUserCardDOM() {
     let article;
     const body = document.querySelector('body');
