@@ -84,10 +84,14 @@ header {
   height: 80vh;
 }
 
-.photo-modal,
+.photo-modal {
+  width: auto;
+  height: 90vh;
+  cursor: auto !important;
+}
 .video-modal {
-  width: 90%;
-  height: 100%;
+  width: 90vh;
+  height: 90vh;
   cursor: auto !important;
 }
 /* Next & previous buttons */
@@ -107,10 +111,9 @@ header {
 .photo-title,
 .video-title {
   color: #901c1c;
-  width: 80%;
+  width: 400px;
   margin: auto;
   font-size: 1.2rem;
-  align-self: start;
   margin-top: 10px;
   display: flex;
   flex-wrap: nowrap;
@@ -253,7 +256,7 @@ form input {
 
 .close {
   position: relative;
-  bottom: 48%;
+  bottom: 54%;
   right: -10px;
   color: #901c1c;
   font-size: 40px;
