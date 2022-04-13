@@ -1,3 +1,4 @@
+import { closeContactModal, openContactModal } from '../utils/contactForm';
 import { createGenericElement } from '../utils/helpers';
 
 export default function photographerFactory(data) {
@@ -5,6 +6,7 @@ export default function photographerFactory(data) {
   const picture = `./assets/photographers/${portrait}`;
   let params = new URLSearchParams(window.location.search);
   let photographerId = params.get('id'); // Récupère l'id du photographe
+
   function getUserCardDOM() {
     let article;
     const body = document.querySelector('body');
@@ -35,7 +37,7 @@ export default function photographerFactory(data) {
       `${price}€ / jour `,
       'photographer-price'
     );
-
+    const contact = document.querySelector('.contact-button');
     article.appendChild(img);
     article.appendChild(h2);
     article.appendChild(ville);
@@ -44,6 +46,18 @@ export default function photographerFactory(data) {
       body.appendChild(prix);
     } else {
       article.appendChild(prix);
+    }
+    const closeModalContact = document.querySelector('.close-contact');
+    const modalTitle = document.querySelector('#modal-contact-title');
+    if (closeModalContact !== null) {
+      closeModalContact.onclick = () => {
+        closeContactModal();
+        modalTitle.innerHTML = 'Contactez-moi';
+      };
+      contact.onclick = () => {
+        openContactModal();
+        modalTitle.innerHTML += `</br>${name}</>`;
+      };
     }
     return article;
   }

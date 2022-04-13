@@ -4,7 +4,6 @@ import './../../css/photographer.css';
 import { customFetch, countTotalLikes, setLightbox } from '../utils/helpers';
 import photographerFactory from '../factories/photographerFactory';
 import mediaFactory from '../factories/mediaFactory';
-import { closeContactModal, openContactModal } from '../utils/contactForm';
 let params = new URLSearchParams(window.location.search);
 let id = params.get('id'); // Récupère l'id du photographe
 
@@ -39,12 +38,6 @@ async function displayMedia(photographerMedia) {
     const mediaModel = mediaFactory(media, i);
     const mediaCardDOM = mediaModel.getCardDOM();
     mediaSection.appendChild(mediaCardDOM);
-    // listener for creating lightbox
-    // document.querySelectorAll('.media-card').forEach((card) => {
-    //   card.addEventListener('click', () => {
-    //     console.log('click');
-    //   });
-    // });
   });
   const mediaCard = document.querySelectorAll('.photo, .video');
   console.log(mediaCard);
@@ -60,15 +53,6 @@ async function displayMedia(photographerMedia) {
   const likes = countTotalLikes(photographerMedia);
   encart.innerHTML += ` | Likes : ${likes}`;
 }
-
-const contact = document.querySelector('.contact-button');
-contact.onclick = () => {
-  openContactModal();
-};
-const closeContact = document.querySelector('.close-contact');
-closeContact.onclick = () => {
-  closeContactModal();
-};
 
 export default async function init() {
   const photographer = await getPhotographer();
