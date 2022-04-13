@@ -50,9 +50,18 @@ export default function photographerFactory(data) {
     const closeModalContact = document.querySelector('.close-contact');
     const modalTitle = document.querySelector('#modal-contact-title');
     if (closeModalContact !== null) {
+      const inputField = document.querySelectorAll('input');
+      const spanError = document.querySelectorAll('.error');
       closeModalContact.onclick = () => {
         closeContactModal();
         modalTitle.innerHTML = 'Contactez-moi';
+        inputField.forEach(function (input) {
+          input.classList.remove('valid', 'invalid');
+        });
+        spanError.forEach(function (span) {
+          span.classList.add('success');
+        });
+        document.getElementById('form').reset();
       };
       contact.onclick = () => {
         openContactModal();

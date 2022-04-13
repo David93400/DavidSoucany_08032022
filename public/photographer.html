@@ -39,7 +39,7 @@
           <h2 id="modal-contact-title">Contactez-moi</h2>
           <img class="close-contact" src="assets/icons/close.png" />
         </header>
-        <form>
+        <form id="form" autocomplete="off">
           <div class="formData first-name">
             <label>Prénom</label>
             <input
@@ -50,10 +50,18 @@
               minlength="2"
             />
           </div>
+          <span class="error success" id="errorFirst"
+            >* Votre prénom doit contenir 2 caractères minimum et aucun
+            caractère spéciaux</span
+          >
           <div class="formData">
             <label>Nom</label>
             <input class="text-control" type="text" id="last" name="last" />
           </div>
+          <span class="error success" id="errorLast"
+            >* Votre nom doit contenir 2 caractères minimum et aucun caractère
+            spéciaux</span
+          >
           <div class="formData">
             <label>E-mail</label>
             <input
@@ -64,6 +72,9 @@
               required
             />
           </div>
+          <span class="error success" id="errorMail"
+            >* Veuillez saisir une adresse e-mail valide</span
+          >
           <div class="formData">
             <label>Votre message</label>
             <textarea
@@ -76,7 +87,10 @@
               required
             ></textarea>
           </div>
-          <button class="modal-contact-button">Envoyer</button>
+          <span class="error success" id="errorMessage"
+            >* Veuillez saisir un message de 10 caractères minimum</span
+          >
+          <button class="modal-contact-button" id="submit">Envoyer</button>
         </form>
       </div>
     </div>

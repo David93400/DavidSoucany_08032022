@@ -325,3 +325,17 @@ form textarea {
   text-decoration: none;
   cursor: pointer;
 }
+
+.error {
+  color: #ab0f0f;
+  font-size: 15px;
+}
+.success {
+  display: none;
+}
+.valid {
+  border: #0bce39 solid 3px;
+}
+.invalid {
+  border: #ab0f0f solid 3px;
+}
