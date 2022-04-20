@@ -18,7 +18,7 @@ a {
 }
 
 i {
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 body {
@@ -61,7 +61,7 @@ header {
 }
 
 .photograph-medias {
-  margin: 100px 50px;
+  margin: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
@@ -334,4 +334,33 @@ form textarea {
 }
 .invalid {
   border: #ab0f0f solid 3px;
+}
+
+.custom-select {
+  width: 90%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.2rem;
+  margin: auto;
+}
+
+.order-label {
+  margin-right: 20px;
+}
+
+select {
+  background-color: #901c1c;
+  color: #fefefe;
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  font: inherit;
+  padding-left: 10px;
+}
+
+select option {
+  background-color: #901c1c;
+  color: #fefefe;
 }

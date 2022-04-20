@@ -40,11 +40,39 @@ async function displayPhotographerData(photographerInfo) {
 async function displayMedia(photographerMedia) {
   const mediaSection = document.querySelector('.photograph-medias');
 
+  const selector = document.querySelector('.order-select');
+  selector.addEventListener('change', (e) => {
+    const order = e.target.value;
+    console.log(order);
+    switch (order) {
+      case 'popular':
+        photographerMedia.sort((a, b) => b.likes - a.likes);
+        break;
+      case 'title':
+        photographerMedia.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'date':
+        photographerMedia.sort(function (a, b) {
+          a = new Date(a.date).getTime();
+          b = new Date(b.date).getTime();
+
+          return a - b;
+        });
+    }
+    mediaSection.innerHTML = '';
+    displayMedia(photographerMedia);
+  });
+
   photographerMedia.forEach((media, i) => {
     const mediaModel = mediaFactory(media, i);
     const mediaCardDOM = mediaModel.getCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
+
+  const encart = document.querySelector('.photographer-price');
+  let likes = displayLikes(countTotalLikes(photographerMedia));
+  encart.innerHTML += ` | Likes : ${likes}`;
+
   const mediaCard = document.querySelectorAll('.photo, .video');
   mediaCard.forEach((card) => {
     card.addEventListener('click', () => {
@@ -52,6 +80,7 @@ async function displayMedia(photographerMedia) {
       setLightbox(photographerMedia, parseInt(index));
     });
   });
+
   const likeCard = document.querySelectorAll('.photo-likes, .video-likes');
   likeCard.forEach((card) => {
     card.addEventListener('click', () => {
@@ -59,9 +88,6 @@ async function displayMedia(photographerMedia) {
       LikeUnlike(photographerMedia, parseInt(index));
     });
   });
-  const encart = document.querySelector('.photographer-price');
-  const likes = displayLikes(countTotalLikes(photographerMedia));
-  encart.innerHTML += ` | Likes : ${likes}`;
 }
 
 export default async function init() {
