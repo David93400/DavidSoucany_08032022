@@ -1,7 +1,13 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import './../../css/photographer.css';
-import { customFetch, countTotalLikes, setLightbox } from '../utils/helpers';
+import {
+  customFetch,
+  countTotalLikes,
+  displayLikes,
+  LikeUnlike,
+} from '../utils/helpers';
+import { setLightbox } from '../utils/lightbox';
 import photographerFactory from '../factories/photographerFactory';
 import mediaFactory from '../factories/mediaFactory';
 let params = new URLSearchParams(window.location.search);
@@ -40,17 +46,21 @@ async function displayMedia(photographerMedia) {
     mediaSection.appendChild(mediaCardDOM);
   });
   const mediaCard = document.querySelectorAll('.photo, .video');
-  console.log(mediaCard);
   mediaCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('index');
-      console.log(index);
-      setLightbox(photographerMedia, index);
+      setLightbox(photographerMedia, parseInt(index));
     });
   });
-
+  const likeCard = document.querySelectorAll('.photo-likes, .video-likes');
+  likeCard.forEach((card) => {
+    card.addEventListener('click', () => {
+      let index = card.getAttribute('likeindex');
+      LikeUnlike(photographerMedia, parseInt(index));
+    });
+  });
   const encart = document.querySelector('.photographer-price');
-  const likes = countTotalLikes(photographerMedia);
+  const likes = displayLikes(countTotalLikes(photographerMedia));
   encart.innerHTML += ` | Likes : ${likes}`;
 }
 

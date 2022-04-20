@@ -61,10 +61,6 @@ header {
 }
 
 .photograph-medias {
-  /* display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 100px; */
   margin: 100px 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -97,7 +93,7 @@ header {
 
 .photo-modal {
   width: auto;
-  height: 90vh;
+  height: 80vh;
   cursor: auto !important;
 }
 .video-modal {
@@ -133,6 +129,7 @@ header {
 .photo-likes,
 .video-likes {
   margin: 0px;
+  cursor: pointer;
 }
 i {
   margin-left: 5px;
@@ -277,7 +274,6 @@ form textarea {
 
 /* The Modal (background) */
 .modalPicture {
-  display: none;
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -301,7 +297,7 @@ form textarea {
 
 .close {
   position: relative;
-  bottom: 54%;
+  bottom: 47%;
   right: -10px;
   color: #901c1c;
   font-size: 40px;

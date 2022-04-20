@@ -11,7 +11,9 @@ export default function photoFactory(media, i) {
       'photo-container media-card'
     );
     const photoTitle = createGenericElement('h3', title, 'photo-title');
-    const numberLikes = createGenericElement('p', likes, 'photo-likes');
+    const numberLikes = createGenericElement('p', likes, 'photo-likes', [
+      { name: 'likeindex', value: i },
+    ]);
     const picture = createGenericElement('img', null, 'photo', [
       { name: 'src', value: photo },
       { name: 'alt', value: `photo de ${title}` },
