@@ -47,16 +47,14 @@ const displayLikes = (data) => {
   return ` ${data} <i class="fa-solid fa-heart"></i>`;
 };
 
-let liked = false;
+// let liked = false;
 const LikeUnlike = (media, index) => {
+  let liked = false;
   const likeText = document.querySelector(`[likeindex="${index}"]`);
-  if (liked === false) {
-    likeText.innerHTML = displayLikes((media[index].likes += 1));
-    liked = true;
-  } else {
-    likeText.innerHTML = displayLikes((media[index].likes -= 1));
-    liked = false;
-  }
+  liked = !liked;
+  return (likeText.innerHTML = displayLikes(
+    liked ? (media[index].likes += 1) : (media[index].likes -= 1)
+  ));
 };
 
 export {

@@ -20,12 +20,45 @@ async function getPhotographer() {
   );
   return photographerInfo;
 }
+const selector = document.querySelector('.order-select');
+selector.addEventListener('change', (e) => {
+  const order = e.target.value;
+  const orderParam = params.get('order');
+  if (orderParam) {
+    const href = location.href.split('&')[0];
+    return location.replace(`${href}&order=${order}`);
+  }
+  return location.replace(`${location.href}&order=${order}`);
+});
 
 async function getMedia() {
   const data = await customFetch('./data/photographers.json', 'GET');
   const photographerMedia = data.media.filter(
     (media) => media.photographerId == id
   );
+  const order = params.get('order');
+  console.log(order);
+  switch (order) {
+    case 'popular':
+      photographerMedia.sort((a, b) => b.likes - a.likes);
+      selector.value = 'popular';
+      break;
+    case 'title':
+      photographerMedia.sort((a, b) => a.title.localeCompare(b.title));
+      selector.value = 'title';
+      break;
+    case 'date':
+      selector.value = 'date';
+      photographerMedia.sort(function (a, b) {
+        a = new Date(a.date).getTime();
+        b = new Date(b.date).getTime();
+
+        return a - b;
+      });
+      break;
+    default:
+      return photographerMedia;
+  }
   console.log(photographerMedia);
   return photographerMedia;
 }
@@ -39,29 +72,6 @@ async function displayPhotographerData(photographerInfo) {
 
 async function displayMedia(photographerMedia) {
   const mediaSection = document.querySelector('.photograph-medias');
-
-  const selector = document.querySelector('.order-select');
-  selector.addEventListener('change', (e) => {
-    const order = e.target.value;
-    console.log(order);
-    switch (order) {
-      case 'popular':
-        photographerMedia.sort((a, b) => b.likes - a.likes);
-        break;
-      case 'title':
-        photographerMedia.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case 'date':
-        photographerMedia.sort(function (a, b) {
-          a = new Date(a.date).getTime();
-          b = new Date(b.date).getTime();
-
-          return a - b;
-        });
-    }
-    mediaSection.innerHTML = '';
-    displayMedia(photographerMedia);
-  });
 
   photographerMedia.forEach((media, i) => {
     const mediaModel = mediaFactory(media, i);
