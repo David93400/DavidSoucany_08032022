@@ -80,7 +80,7 @@ async function displayMedia(photographerMedia) {
   });
 
   const encart = document.querySelector('.photographer-price');
-  let likes = displayLikes(countTotalLikes(photographerMedia));
+  let likes = displayLikes(countTotalLikes(photographerMedia), true);
   encart.innerHTML += ` | Likes : ${likes}`;
 
   const mediaCard = document.querySelectorAll('.photo, .video');
@@ -95,6 +95,7 @@ async function displayMedia(photographerMedia) {
   likeCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('likeindex');
+      let liked = false;
       LikeUnlike(photographerMedia, parseInt(index));
     });
   });

@@ -19,7 +19,7 @@ export default function photoFactory(media, i) {
       { name: 'alt', value: `photo de ${title}` },
       { name: 'index', value: i },
     ]);
-    const heart = createGenericElement('i', null, 'fa-heart fa-solid');
+    const heart = createGenericElement('i', null, 'fa-regular fa-heart');
     numberLikes.appendChild(heart);
     photoContainer.appendChild(picture);
     photoContainer.appendChild(photoTitle);

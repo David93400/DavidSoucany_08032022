@@ -25,7 +25,7 @@ export default function videoFactory(media, i) {
       { name: 'type', value: 'video/mp4' },
     ]);
     video.appendChild(source);
-    const heart = createGenericElement('i', null, 'fa-heart fa-solid');
+    const heart = createGenericElement('i', null, 'fa-regular fa-heart');
     numberLikes.appendChild(heart);
     videoContainer.appendChild(video);
     videoContainer.appendChild(videoTitle);

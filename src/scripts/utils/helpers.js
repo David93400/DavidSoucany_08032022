@@ -43,18 +43,25 @@ const countTotalLikes = (data) => {
   return likes;
 };
 
-const displayLikes = (data) => {
+const displayLikes = (data, liked) => {
+  if (!liked) {
+    return ` ${data} <i class="fa-regular fa-heart"></i>`;
+  }
   return ` ${data} <i class="fa-solid fa-heart"></i>`;
 };
 
 // let liked = false;
 const LikeUnlike = (media, index) => {
-  let liked = false;
+  console.log(media[index]);
+  let liked;
   const likeText = document.querySelector(`[likeindex="${index}"]`);
-  liked = !liked;
-  return (likeText.innerHTML = displayLikes(
-    liked ? (media[index].likes += 1) : (media[index].likes -= 1)
-  ));
+
+  likeText.getAttribute('liked') !== 'true' ? (liked = false) : (liked = true);
+  !liked
+    ? likeText.setAttribute('liked', 'true')
+    : likeText.removeAttribute('liked');
+  const newLike = liked ? (media[index].likes -= 1) : (media[index].likes += 1);
+  return (likeText.innerHTML = displayLikes(newLike, !liked));
 };
 
 export {
