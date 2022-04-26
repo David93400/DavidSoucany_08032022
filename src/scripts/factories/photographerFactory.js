@@ -37,12 +37,14 @@ export default function photographerFactory(data) {
       `${price}€ / jour `,
       'photographer-price'
     );
+    const totalLike = createGenericElement('span', '', 'total-likes');
     const contact = document.querySelector('.contact-button');
     article.appendChild(img);
     article.appendChild(h2);
     article.appendChild(ville);
     article.appendChild(description);
     if (photographerId == id) {
+      prix.appendChild(totalLike);
       body.appendChild(prix);
     } else {
       article.appendChild(prix);

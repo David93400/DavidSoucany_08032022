@@ -50,9 +50,7 @@ const displayLikes = (data, liked) => {
   return ` ${data} <i class="fa-solid fa-heart"></i>`;
 };
 
-// let liked = false;
 const LikeUnlike = (media, index) => {
-  console.log(media[index]);
   let liked;
   const likeText = document.querySelector(`[likeindex="${index}"]`);
 

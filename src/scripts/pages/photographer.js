@@ -6,6 +6,7 @@ import {
   countTotalLikes,
   displayLikes,
   LikeUnlike,
+  createGenericElement,
 } from '../utils/helpers';
 import { setLightbox } from '../utils/lightbox';
 import photographerFactory from '../factories/photographerFactory';
@@ -79,7 +80,7 @@ async function displayMedia(photographerMedia) {
     mediaSection.appendChild(mediaCardDOM);
   });
 
-  const encart = document.querySelector('.photographer-price');
+  const encart = document.querySelector('.total-likes');
   let likes = displayLikes(countTotalLikes(photographerMedia), true);
   encart.innerHTML += ` | Likes : ${likes}`;
 
@@ -95,8 +96,12 @@ async function displayMedia(photographerMedia) {
   likeCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('likeindex');
-      let liked = false;
       LikeUnlike(photographerMedia, parseInt(index));
+      const totalLike = document.querySelector('.total-likes');
+      totalLike.innerHTML = ` | Likes : ${displayLikes(
+        countTotalLikes(photographerMedia),
+        true
+      )}`;
     });
   });
 }

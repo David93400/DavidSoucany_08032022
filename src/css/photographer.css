@@ -262,7 +262,7 @@ form textarea {
   right: 10px;
   margin-left: 80%;
   padding: 10px;
-  width: 225px;
+  width: 235px;
   background-color: #db8876;
   text-align: center;
   font-size: 1.1rem;
@@ -363,4 +363,8 @@ select {
 select option {
   background-color: #901c1c;
   color: #fefefe;
+}
+
+.total-likes {
+  margin-left: 8px;
 }
