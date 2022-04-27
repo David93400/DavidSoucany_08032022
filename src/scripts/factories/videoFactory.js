@@ -16,6 +16,7 @@ export default function videoFactory(media, i) {
     const video = createGenericElement('video', null, 'video', [
       { name: 'controls', value: true },
       { name: 'index', value: i },
+      { name: 'alt', value: `vidéo de ${media.video}` },
     ]);
     video.autoplay = true;
     video.muted = true;

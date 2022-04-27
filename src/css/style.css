@@ -8,6 +8,9 @@ a {
   text-decoration: none;
   color: #000;
 }
+
+a:focus {
+}
 header {
   display: flex;
   flex-direction: row;
@@ -112,7 +115,7 @@ h1 {
 }
 
 .photographer-price {
-  color: #787878;
+  color: #525252;
   font-size: 0.7rem;
   display: flex;
   flex-direction: column;

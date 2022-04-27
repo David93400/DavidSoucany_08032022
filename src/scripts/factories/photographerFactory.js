@@ -54,7 +54,7 @@ export default function photographerFactory(data) {
     if (closeModalContact !== null) {
       const inputField = document.querySelectorAll('input');
       const spanError = document.querySelectorAll('.error');
-      closeModalContact.onclick = () => {
+      const cleanContactModal = () => {
         closeContactModal();
         modalTitle.innerHTML = 'Contactez-moi';
         inputField.forEach(function (input) {
@@ -64,6 +64,14 @@ export default function photographerFactory(data) {
           span.classList.add('success');
         });
         document.getElementById('form').reset();
+      };
+      closeModalContact.onclick = () => {
+        cleanContactModal();
+      };
+      document.onkeydown = (e) => {
+        if (e.key === 'Escape') {
+          cleanContactModal();
+        }
       };
       contact.onclick = () => {
         openContactModal();
