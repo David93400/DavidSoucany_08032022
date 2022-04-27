@@ -10,15 +10,21 @@ const firstNameError = document.querySelector('#errorFirst');
 const lastNameError = document.querySelector('#errorLast');
 const mailError = document.querySelector('#errorMail');
 const messageError = document.querySelector('#errorMessage');
+const form = document.getElementById('form');
+const validation = document.getElementById('validation');
+const formTitle = document.getElementById('modal-contact-title');
+const modal = document.getElementById('contact-modal');
 
 function openContactModal() {
-  const modal = document.getElementById('contact-modal');
   modal.style.display = 'block';
 }
 
 function closeContactModal() {
-  const modal = document.getElementById('contact-modal');
+  message.classList.remove('invalid');
   modal.style.display = 'none';
+  form.classList.remove('success');
+  formTitle.classList.remove('success');
+  validation.classList.add('success');
 }
 
 const displaySuccess = (field, fieldError) => {
@@ -84,10 +90,13 @@ if (submit !== null) {
     e.preventDefault();
     const inputs = getInputs();
     const formIsValid = checkForm(inputs);
-    if (formIsValid) {
-      console.log('form is valid', inputs);
-      closeContactModal();
+    if (!formIsValid) {
+      return false;
     }
+    form.classList.add('success');
+    formTitle.classList.add('success');
+    validation.classList.remove('success');
+    console.log('form is valid', inputs);
   });
 }
 

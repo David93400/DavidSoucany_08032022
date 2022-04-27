@@ -6,7 +6,6 @@ import {
   countTotalLikes,
   displayLikes,
   LikeUnlike,
-  createGenericElement,
 } from '../utils/helpers';
 import { setLightbox } from '../utils/lightbox';
 import photographerFactory from '../factories/photographerFactory';
@@ -82,7 +81,7 @@ async function displayMedia(photographerMedia) {
 
   const encart = document.querySelector('.total-likes');
   let likes = displayLikes(countTotalLikes(photographerMedia), true);
-  encart.innerHTML += ` | Likes : ${likes}`;
+  encart.innerHTML += `${likes}`;
 
   const mediaCard = document.querySelectorAll('.photo, .video');
   mediaCard.forEach((card) => {
@@ -98,7 +97,7 @@ async function displayMedia(photographerMedia) {
       let index = card.getAttribute('likeindex');
       LikeUnlike(photographerMedia, parseInt(index));
       const totalLike = document.querySelector('.total-likes');
-      totalLike.innerHTML = ` | Likes : ${displayLikes(
+      totalLike.innerHTML = `  Likes : ${displayLikes(
         countTotalLikes(photographerMedia),
         true
       )}`;

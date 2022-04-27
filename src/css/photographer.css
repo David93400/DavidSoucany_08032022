@@ -34,7 +34,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 100px;
   width: 100%;
   background-color: white;
 }
@@ -180,7 +180,7 @@ i {
   left: 25%;
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,7 +262,7 @@ form textarea {
   right: 10px;
   margin-left: 80%;
   padding: 10px;
-  width: 235px;
+  width: 180px;
   background-color: #db8876;
   text-align: center;
   font-size: 1.1rem;
@@ -366,5 +366,20 @@ select option {
 }
 
 .total-likes {
-  margin-left: 8px;
+  margin-left: 25px;
+}
+
+button:hover,
+button:focus {
+  background-color: #db8876;
+  color: black;
+}
+
+.success {
+  display: none;
+}
+
+#validation {
+  font-size: 1.5rem;
+  text-align: center;
 }
