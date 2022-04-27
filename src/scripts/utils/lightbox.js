@@ -52,7 +52,6 @@ const setLightbox = (data, index) => {
   const nextBtn = createGenericElement('span', '>', 'next');
 
   const nextSlide = () => {
-    console.log('next');
     closePictureModal();
     const nextIndex = index + 1;
     if (nextIndex < data.length) {
@@ -70,17 +69,13 @@ const setLightbox = (data, index) => {
     return setLightbox(data, data.length - 1);
   };
 
-  window.addEventListener('keydown', (e) => {
+  document.onkeydown = function (e) {
     if (e.key === 'ArrowRight') {
       nextSlide();
-      e.stopPropagation();
-      e.preventDefault();
     } else if (e.key === 'ArrowLeft') {
       previsousSlide();
-      e.stopPropagation();
-      e.preventDefault();
     }
-  });
+  };
 
   nextBtn.addEventListener('click', nextSlide);
   nextBtn.addEventListener('keydown', nextSlide);
