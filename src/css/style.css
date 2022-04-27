@@ -35,6 +35,36 @@ h1 {
   margin-bottom: 80px;
 }
 
+@media screen and (max-width: 1050px) {
+  .photographer-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .photographer-section {
+    grid-template-columns: 1fr;
+  }
+  .logo {
+    margin-left: 30px;
+  }
+  h1 {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  .logo {
+    margin: 15px 0px;
+  }
+  h1 {
+    margin: 0;
+  }
+}
+
 .photographer-section a {
   justify-self: center;
   display: flex;

@@ -97,10 +97,10 @@ async function displayMedia(photographerMedia) {
       let index = card.getAttribute('likeindex');
       LikeUnlike(photographerMedia, parseInt(index));
       const totalLike = document.querySelector('.total-likes');
-      totalLike.innerHTML = `  Likes : ${displayLikes(
+      totalLike.innerHTML = displayLikes(
         countTotalLikes(photographerMedia),
         true
-      )}`;
+      );
     });
   });
 }

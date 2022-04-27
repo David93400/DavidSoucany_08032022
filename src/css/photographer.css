@@ -262,7 +262,7 @@ form textarea {
   right: 10px;
   margin-left: 80%;
   padding: 10px;
-  width: 180px;
+  width: 170px;
   background-color: #db8876;
   text-align: center;
   font-size: 1.1rem;
@@ -366,7 +366,7 @@ select option {
 }
 
 .total-likes {
-  margin-left: 25px;
+  margin-left: 10px;
 }
 
 button:hover,
@@ -382,4 +382,85 @@ button:focus {
 #validation {
   font-size: 1.5rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1450px) {
+  .photograph-medias {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .contact-button {
+    margin-top: 40px;
+    position: inherit;
+  }
+  .photograph-header {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .photographer-price {
+    margin-left: 75%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .photograph-medias {
+    grid-template-columns: 1fr;
+  }
+  .photographer-img {
+    position: static !important;
+  }
+  .photograph-info {
+    position: absolute;
+    top: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  header {
+    justify-content: start;
+  }
+  .logo {
+    margin: 25px;
+  }
+  .contact-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-top: 0;
+  }
+  .photographer-price {
+    right: 0;
+    margin-left: 55%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .modal {
+    width: 65%;
+    left: 15%;
+  }
+  #modal-contact-title {
+    font-size: 2rem;
+  }
+  .modal label {
+    font-size: 1.8rem;
+  }
+  .close-contact {
+    width: 25px;
+  }
+  .mySlides img {
+    max-width: 70%;
+    height: auto;
+    object-fit: cover;
+  }
+  .video-modal {
+    max-width: 70%;
+    height: auto;
+    object-fit: cover;
+  }
+  .myslides {
+    margin: auto;
+  }
 }
