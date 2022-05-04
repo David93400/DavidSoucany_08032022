@@ -1,25 +1,29 @@
 import { createGenericElement } from './helpers';
 
-const createLightbox = () => {
+const createLightbox = (title) => {
   if (document.querySelector('.modalPicture')) return;
   const modalPicture = createGenericElement('div', '', 'modalPicture', [
     { name: 'id', value: 'myModal' },
   ]);
+  const mediaTitle = createGenericElement('h3', title, 'media-title');
   const modalContentDom = createGenericElement('div', '', 'modal-content');
   const lightboxDom = createGenericElement('div', '', 'mySlides');
   document.querySelector('#main').after(modalPicture);
-  return modalPicture.append(lightboxDom, modalContentDom);
+  return modalPicture.append(lightboxDom, modalContentDom, mediaTitle);
 };
 
 function closePictureModal() {
   document.querySelector('.modalPicture').remove();
+  location.reload();
 }
 
 const setLightbox = (data, index) => {
+  console.log('lightbox');
   let content = '';
   let modalMedia = '';
+  const { title } = data[index];
   if (data[index].image !== undefined) {
-    const { title, image } = data[index];
+    const { image } = data[index];
     content = `./assets/medias/${image}`;
     modalMedia = createGenericElement('img', null, 'photo photo-modal', [
       { name: 'src', value: content },
@@ -27,7 +31,7 @@ const setLightbox = (data, index) => {
       { name: 'index', value: index },
     ]);
   } else {
-    const { title, video } = data[index];
+    const { video } = data[index];
     content = `./assets/medias/${video}`;
     modalMedia = createGenericElement('video', null, 'video video-modal', [
       { name: 'controls', value: true },
@@ -43,10 +47,9 @@ const setLightbox = (data, index) => {
     modalMedia.appendChild(source);
   }
 
-  createLightbox();
+  createLightbox(title);
 
   const mediaModal = document.querySelector('.mySlides');
-
   const closeBtn = createGenericElement('i', '', 'fa-solid fa-xmark close');
   const previousBtn = createGenericElement('span', '<', 'prev');
   const nextBtn = createGenericElement('span', '>', 'next');
@@ -78,7 +81,6 @@ const setLightbox = (data, index) => {
   };
 
   nextBtn.addEventListener('click', nextSlide);
-  nextBtn.addEventListener('keydown', nextSlide);
   previousBtn.addEventListener('click', previsousSlide);
   mediaModal.appendChild(closeBtn);
   mediaModal.appendChild(previousBtn);

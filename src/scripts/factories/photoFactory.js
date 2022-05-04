@@ -1,14 +1,18 @@
 import { createGenericElement } from '../utils/helpers';
 
 export default function photoFactory(media, i) {
-  const { id, photographerId, title, image, likes, date, price } = media;
+  const { id, photographerId, title, image, likes } = media;
   const photo = `./assets/medias/${image}`;
 
   function getCardDOM() {
     const photoContainer = createGenericElement(
       'div',
       null,
-      'photo-container media-card'
+      'photo-container media-card',
+      [
+        { name: 'tabindex', value: i + 6 },
+        { name: 'index', value: i },
+      ]
     );
     const photoTitle = createGenericElement('h3', title, 'photo-title');
     const numberLikes = createGenericElement('p', likes, 'photo-likes', [

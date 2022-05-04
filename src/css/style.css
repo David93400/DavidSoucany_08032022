@@ -10,6 +10,8 @@ a {
 }
 
 a:focus {
+  padding: 10px;
+  outline: 4px solid #901c1c;
 }
 header {
   display: flex;

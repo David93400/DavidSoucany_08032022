@@ -14,6 +14,14 @@ const customFetch = async (url, method = 'GET', headers = {}, body = '') => {
 };
 
 // create DOM element
+/**
+ *
+ * @param {*} type(balise)
+ * @param {*} text(contenu)
+ * @param {*} className(style)
+ * @param {*} attributes(src, alt, index, etc...)
+ * @returns
+ */
 const createGenericElement = (
   type,
   text = '',

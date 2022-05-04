@@ -69,7 +69,7 @@ const checkForm = (formInputs) => {
     if (key === 'message')
       isValid[key] = validateField(regexName, message, messageError, 10);
   });
-  const wrongInputs = Object.entries(isValid).filter(([key, value]) => !value);
+  const wrongInputs = Object.entries(isValid).filter(([, value]) => !value);
   return !wrongInputs.length;
 };
 if (submit !== null) {

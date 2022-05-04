@@ -22,13 +22,13 @@ async function getPhotographer() {
 }
 const selector = document.querySelector('.order-select');
 selector.addEventListener('change', (e) => {
-  const order = e.target.value;
-  const orderParam = params.get('order');
-  if (orderParam) {
+  const filter = e.target.value;
+  const filterParam = params.get('order');
+  if (filterParam) {
     const href = location.href.split('&')[0];
-    return location.replace(`${href}&order=${order}`);
+    return location.replace(`${href}&order=${filter}`);
   }
-  return location.replace(`${location.href}&order=${order}`);
+  return location.replace(`${location.href}&order=${filter}`);
 });
 
 async function getMedia() {
@@ -36,9 +36,8 @@ async function getMedia() {
   const photographerMedia = data.media.filter(
     (media) => media.photographerId == id
   );
-  const order = params.get('order');
-  console.log(order);
-  switch (order) {
+  const filter = params.get('order');
+  switch (filter) {
     case 'popular':
       photographerMedia.sort((a, b) => b.likes - a.likes);
       selector.value = 'popular';
@@ -83,11 +82,17 @@ async function displayMedia(photographerMedia) {
   let likes = displayLikes(countTotalLikes(photographerMedia), true);
   encart.innerHTML += `${likes}`;
 
-  const mediaCard = document.querySelectorAll('.photo, .video');
+  const mediaCard = document.querySelectorAll('.media-card, .video');
   mediaCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('index');
       setLightbox(photographerMedia, parseInt(index));
+    });
+    card.addEventListener('keypress', (e) => {
+      if (e.keyCode === 13) {
+        let index = card.getAttribute('index');
+        setLightbox(photographerMedia, parseInt(index));
+      }
     });
   });
 

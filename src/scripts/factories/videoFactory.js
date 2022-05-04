@@ -1,13 +1,14 @@
 import { createGenericElement } from '../utils/helpers';
 
 export default function videoFactory(media, i) {
-  const { id, photographerId, title, likes, date, price } = media;
+  const { id, photographerId, title, likes } = media;
 
   function getCardDOM() {
     const videoContainer = createGenericElement(
       'div',
       null,
-      'video-container media-card'
+      'video-container media-card',
+      [{ name: 'tabindex', value: i + 6 }]
     );
     const videoTitle = createGenericElement('h3', title, 'video-title');
     const numberLikes = createGenericElement('p', likes, 'video-likes', [

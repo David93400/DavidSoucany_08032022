@@ -48,6 +48,7 @@
           <div class="formData first-name">
             <label>Prénom</label>
             <input
+            tabindex="1"
               class="text-control"
               type="text"
               id="first"
@@ -61,7 +62,7 @@
           >
           <div class="formData">
             <label>Nom</label>
-            <input class="text-control" type="text" id="last" name="last" />
+            <input class="text-control" type="text" id="last" name="last" tabindex="2" />
           </div>
           <span class="error success" id="errorLast"
             >* Votre nom doit contenir 2 caractères minimum et aucun caractère
@@ -70,6 +71,7 @@
           <div class="formData">
             <label>E-mail</label>
             <input
+            tabindex="3"
               class="text-control"
               type="email"
               id="email"
@@ -83,6 +85,7 @@
           <div class="formData">
             <label>Votre message</label>
             <textarea
+            tabindex="4"
               cols="50"
               rows="10"
               class="text-control"
@@ -95,7 +98,7 @@
           <span class="error success" id="errorMessage"
             >* Veuillez saisir un message de 10 caractères minimum</span
           >
-          <button class="modal-contact-button" id="submit">Envoyer</button>
+          <button tabindex="5" class="modal-contact-button" id="submit">Envoyer</button>
         </form>
         <div id="validation" class="success">
           <p>Merci ! <br><br>  Votre message a bien été envoyé ! <br><br> À bientôt sur Fisheye</p>
