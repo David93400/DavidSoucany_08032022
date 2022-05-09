@@ -22,7 +22,7 @@ export default function photographerFactory(data) {
       { name: 'alt', value: `photo de ${name}` },
     ]);
     const h2 = createGenericElement('h2', name, 'photographer-name');
-    const ville = createGenericElement(
+    const town = createGenericElement(
       'p',
       `${city}, ${country}`,
       'photographer-city'
@@ -41,7 +41,7 @@ export default function photographerFactory(data) {
     const contact = document.querySelector('.contact-button');
     article.appendChild(img);
     article.appendChild(h2);
-    article.appendChild(ville);
+    article.appendChild(town);
     article.appendChild(description);
     if (photographerId == id) {
       prix.appendChild(totalLike);

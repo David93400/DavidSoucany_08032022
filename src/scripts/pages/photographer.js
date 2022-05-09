@@ -82,16 +82,26 @@ async function displayMedia(photographerMedia) {
   let likes = displayLikes(countTotalLikes(photographerMedia), true);
   encart.innerHTML += `${likes}`;
 
-  const mediaCard = document.querySelectorAll('.media-card, .video');
+  const mediaCard = document.querySelectorAll('.photo, .video');
   mediaCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('index');
       setLightbox(photographerMedia, parseInt(index));
     });
     card.addEventListener('keypress', (e) => {
-      if (e.keyCode === 13) {
+      if (e.key === 'Enter') {
         let index = card.getAttribute('index');
         setLightbox(photographerMedia, parseInt(index));
+      }
+    });
+  });
+
+  const mediaLikes = document.querySelectorAll('.photo-likes, .video-likes');
+  mediaLikes.forEach((like) => {
+    like.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        let index = like.getAttribute('likeindex');
+        LikeUnlike(photographerMedia, parseInt(index));
       }
     });
   });

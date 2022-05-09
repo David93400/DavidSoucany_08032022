@@ -8,16 +8,18 @@ export default function videoFactory(media, i) {
       'div',
       null,
       'video-container media-card',
-      [{ name: 'tabindex', value: i + 6 }]
+      [{ name: 'index', value: i }]
     );
     const videoTitle = createGenericElement('h3', title, 'video-title');
     const numberLikes = createGenericElement('p', likes, 'video-likes', [
       { name: 'likeindex', value: i },
+      { name: 'tabindex', value: i + 6 },
+      { name: 'alt', value: `presser Entrer liker ou unliker` },
     ]);
     const video = createGenericElement('video', null, 'video', [
-      { name: 'controls', value: true },
       { name: 'index', value: i },
       { name: 'alt', value: `vidéo de ${media.video}` },
+      { name: 'tabindex', value: i + 6 },
     ]);
     video.autoplay = true;
     video.muted = true;

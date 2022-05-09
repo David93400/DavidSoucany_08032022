@@ -13,12 +13,12 @@ const createLightbox = (title) => {
 };
 
 function closePictureModal() {
+  document.querySelector('.media-card').blur();
   document.querySelector('.modalPicture').remove();
-  location.reload();
+  document.querySelector('a').focus();
 }
 
 const setLightbox = (data, index) => {
-  console.log('lightbox');
   let content = '';
   let modalMedia = '';
   const { title } = data[index];
@@ -63,7 +63,7 @@ const setLightbox = (data, index) => {
     return setLightbox(data, 0);
   };
 
-  const previsousSlide = () => {
+  const previousSlide = () => {
     closePictureModal();
     const nextIndex = index - 1;
     if (nextIndex >= 0) {
@@ -76,12 +76,12 @@ const setLightbox = (data, index) => {
     if (e.key === 'ArrowRight') {
       nextSlide();
     } else if (e.key === 'ArrowLeft') {
-      previsousSlide();
+      previousSlide();
     }
   };
 
   nextBtn.addEventListener('click', nextSlide);
-  previousBtn.addEventListener('click', previsousSlide);
+  previousBtn.addEventListener('click', previousSlide);
   mediaModal.appendChild(closeBtn);
   mediaModal.appendChild(previousBtn);
   mediaModal.appendChild(nextBtn);

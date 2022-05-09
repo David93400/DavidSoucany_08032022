@@ -9,19 +9,19 @@ export default function photoFactory(media, i) {
       'div',
       null,
       'photo-container media-card',
-      [
-        { name: 'tabindex', value: i + 6 },
-        { name: 'index', value: i },
-      ]
+      [{ name: 'index', value: i }]
     );
     const photoTitle = createGenericElement('h3', title, 'photo-title');
     const numberLikes = createGenericElement('p', likes, 'photo-likes', [
       { name: 'likeindex', value: i },
+      { name: 'tabindex', value: i + 6 },
+      { name: 'alt', value: `presser Entrer liker ou unliker` },
     ]);
     const picture = createGenericElement('img', null, 'photo', [
       { name: 'src', value: photo },
       { name: 'alt', value: `photo de ${title}` },
       { name: 'index', value: i },
+      { name: 'tabindex', value: i + 6 },
     ]);
     const heart = createGenericElement('i', null, 'fa-regular fa-heart');
     numberLikes.appendChild(heart);
