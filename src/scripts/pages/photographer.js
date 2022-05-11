@@ -90,6 +90,7 @@ async function displayMedia(photographerMedia) {
     });
     card.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
+        if (document.querySelector('.modalPicture')) return;
         setLightbox(photographerMedia, parseInt(index));
       }
     });
