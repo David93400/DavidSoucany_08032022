@@ -10,8 +10,8 @@ export default function photoFactory(media, i) {
       null,
       'photo-container media-card'
     );
-    const photoTitle = createGenericElement('h3', title, 'photo-title');
-    const numberLikes = createGenericElement('p', likes, 'photo-likes', [
+    const photoTitle = createGenericElement('h2', title, 'photo-title');
+    const numberLikes = createGenericElement('h3', likes, 'photo-likes', [
       { name: 'likeindex', value: i },
       { name: 'tabindex', value: i + 6 },
       { name: 'aria-label', value: `presser Entrer pour aimer cette photo` },

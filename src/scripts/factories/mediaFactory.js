@@ -2,13 +2,10 @@ import photoFactory from './photoFactory';
 import videoFactory from './videoFactory';
 
 const mediaFactory = (media, i) => {
-  // eslint-disable-next-line no-prototype-builtins
-  if (media.hasOwnProperty('image')) {
+  if (Object.prototype.hasOwnProperty.call(media, 'image')) {
     return photoFactory(media, i);
   }
-
-  // eslint-disable-next-line no-prototype-builtins
-  if (media.hasOwnProperty('video')) {
+  if (Object.prototype.hasOwnProperty.call(media, 'video')) {
     return videoFactory(media, i);
   }
 };

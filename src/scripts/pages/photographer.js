@@ -58,7 +58,6 @@ async function getMedia() {
     default:
       return photographerMedia;
   }
-  console.log(photographerMedia);
   return photographerMedia;
 }
 

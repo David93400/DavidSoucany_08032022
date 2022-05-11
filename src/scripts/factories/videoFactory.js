@@ -9,8 +9,8 @@ export default function videoFactory(media, i) {
       null,
       'video-container media-card'
     );
-    const videoTitle = createGenericElement('h3', title, 'video-title');
-    const numberLikes = createGenericElement('p', likes, 'video-likes', [
+    const videoTitle = createGenericElement('h2', title, 'video-title');
+    const numberLikes = createGenericElement('h3', likes, 'video-likes', [
       { name: 'likeindex', value: i },
       { name: 'tabindex', value: i + 6 },
       { name: 'aria-label', value: `presser Entrer pour aimer cette vidéo` },

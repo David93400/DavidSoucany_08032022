@@ -21,7 +21,7 @@ export default function photographerFactory(data) {
       { name: 'src', value: picture },
       { name: 'alt', value: `photo de ${name}` },
     ]);
-    const h2 = createGenericElement('h2', name, 'photographer-name');
+    const h2 = createGenericElement('h1', name, 'photographer-name');
     const town = createGenericElement(
       'p',
       `${city}, ${country}`,

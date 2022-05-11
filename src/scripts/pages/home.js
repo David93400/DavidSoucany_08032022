@@ -7,7 +7,6 @@ import { customFetch } from '../utils/helpers';
 async function getPhotographers() {
   const data = await customFetch('./data/photographers.json');
   const photographers = data.photographers;
-  console.log(photographers);
   return {
     photographers,
   };

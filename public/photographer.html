@@ -42,11 +42,11 @@
       <div class="modal">
         <header>
           <h2 id="modal-contact-title">Contactez-moi</h2>
-          <img class="close-contact" src="assets/icons/close.png" />
+          <img class="close-contact" src="assets/icons/close.png" alt="icone de fermeture" />
         </header>
         <form id="form" autocomplete="off">
           <div class="formData first-name">
-            <label>Prénom</label>
+            <label for="first">Prénom</label>
             <input
             tabindex="1"
               class="text-control"
@@ -61,7 +61,7 @@
             caractère spéciaux</span
           >
           <div class="formData">
-            <label>Nom</label>
+            <label for="last">Nom</label>
             <input class="text-control" type="text" id="last" name="last" tabindex="2" />
           </div>
           <span class="error success" id="errorLast"
@@ -69,7 +69,7 @@
             spéciaux</span
           >
           <div class="formData">
-            <label>E-mail</label>
+            <label for="email">E-mail</label>
             <input
             tabindex="3"
               class="text-control"
@@ -83,7 +83,7 @@
             >* Veuillez saisir une adresse e-mail valide</span
           >
           <div class="formData">
-            <label>Votre message</label>
+            <label for="message">Votre message</label>
             <textarea
             tabindex="4"
               cols="50"

@@ -19,7 +19,6 @@ function closePictureModal() {
 }
 
 const setLightbox = (data, index) => {
-  console.log(index);
   let content = '';
   let modalMedia = '';
   const { title } = data[index];
