@@ -68,6 +68,9 @@ export default function photographerFactory(data) {
       closeModalContact.onclick = () => {
         cleanContactModal();
       };
+      closeModalContact.onkeypress = () => {
+        cleanContactModal();
+      };
       document.onkeydown = (e) => {
         if (e.key === 'Escape') {
           cleanContactModal();

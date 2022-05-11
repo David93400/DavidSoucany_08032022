@@ -18,8 +18,8 @@ a {
 }
 
 :focus {
-  padding: 10px;
-  outline: 4px solid #901c1c;
+  padding: 3px;
+  outline: 3px solid #901c1c;
 }
 i {
   padding-left: 3px;
@@ -101,6 +101,12 @@ header {
   height: 80vh;
 }
 
+.mySlides img {
+  max-width: 85%;
+  max-height: 95%;
+  object-fit: cover;
+}
+
 .photo-modal {
   width: auto;
   height: 80vh;
@@ -140,6 +146,9 @@ header {
 .video-likes {
   margin: 0px;
   cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 i {
   margin-left: 5px;
@@ -448,7 +457,7 @@ button:focus {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px) {
   .modal {
     width: 65%;
     left: 15%;
