@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "start": "webpack serve --open --config webpack.config.js"
+    "start": "webpack serve --open --config webpack.config.js",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix --cache"
   },
   "keywords": [],
   "author": "",
