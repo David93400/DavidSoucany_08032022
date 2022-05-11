@@ -13,9 +13,10 @@ const createLightbox = (title) => {
 };
 
 function closePictureModal() {
-  document.querySelector('.media-card').blur();
+  // document.querySelector('.media-card').blur();
   document.querySelector('.modalPicture').remove();
   document.querySelector('a').focus();
+  console.log(document.activeElement);
 }
 
 const setLightbox = (data, index) => {
@@ -73,9 +74,12 @@ const setLightbox = (data, index) => {
   };
 
   document.onkeydown = function (e) {
-    if (e.key === 'ArrowRight') {
+    if (e.key === 'ArrowRight' && document.querySelector('.modalPicture')) {
       nextSlide();
-    } else if (e.key === 'ArrowLeft') {
+    } else if (
+      e.key === 'ArrowLeft' &&
+      document.querySelector('.modalPicture')
+    ) {
       previousSlide();
     }
   };

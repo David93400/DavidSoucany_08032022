@@ -14,11 +14,15 @@ export default function videoFactory(media, i) {
     const numberLikes = createGenericElement('p', likes, 'video-likes', [
       { name: 'likeindex', value: i },
       { name: 'tabindex', value: i + 6 },
-      { name: 'alt', value: `presser Entrer liker ou unliker` },
+      { name: 'aria-label', value: `presser Entrer pour aimer cette vidéo` },
     ]);
     const video = createGenericElement('video', null, 'video', [
       { name: 'index', value: i },
       { name: 'alt', value: `vidéo de ${media.video}` },
+      {
+        name: 'aria-label',
+        value: `presser Entrer pour ouvrir la vidéo de ${title}`,
+      },
       { name: 'tabindex', value: i + 6 },
     ]);
     video.autoplay = true;

@@ -15,11 +15,15 @@ export default function photoFactory(media, i) {
     const numberLikes = createGenericElement('p', likes, 'photo-likes', [
       { name: 'likeindex', value: i },
       { name: 'tabindex', value: i + 6 },
-      { name: 'alt', value: `presser Entrer liker ou unliker` },
+      { name: 'aria-label', value: `presser Entrer pour aimer cette photo` },
     ]);
     const picture = createGenericElement('img', null, 'photo', [
       { name: 'src', value: photo },
       { name: 'alt', value: `photo de ${title}` },
+      {
+        name: 'aria-label',
+        value: `presser Entrer pour ouvrir la photo de ${title}`,
+      },
       { name: 'index', value: i },
       { name: 'tabindex', value: i + 6 },
     ]);

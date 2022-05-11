@@ -18,17 +18,17 @@
   </head>
   <body>
     <header>
-      <a title="redirection vers l'acceuil" href="index.html">
+      <a title="redirection vers l'acceuil" href="index.html" tabindex="1">
         <img src="./assets/images/logo.png" class="logo" alt="Logo Fisheye" />
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact-button" tabindex="1">Contactez-moi</button>
+        <button aria-label="Bouton contactez-moi" class="contact-button" tabindex="1">Contactez-moi</button>
       </div>
       <div class="custom-select">
         <label class="order-label" for="order-select">Trier par</label>
-        <select class="order-select" name="order" id="order-select" tabindex="6">
+        <select class="order-select" name="order" id="order-select" tabindex="6" aria-label="Menu déroulant pour trier les médias">
           <option value="date">Date</option>
           <option value="popular">Popularité</option>
           <option value="title">Titre</option>

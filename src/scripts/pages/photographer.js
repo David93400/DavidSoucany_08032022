@@ -96,28 +96,33 @@ async function displayMedia(photographerMedia) {
     });
   });
 
-  const mediaLikes = document.querySelectorAll('.photo-likes, .video-likes');
-  mediaLikes.forEach((like) => {
-    like.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        let index = like.getAttribute('likeindex');
-        LikeUnlike(photographerMedia, parseInt(index));
-      }
-    });
-  });
-
+  const totalLike = document.querySelector('.total-likes');
   const likeCard = document.querySelectorAll('.photo-likes, .video-likes');
   likeCard.forEach((card) => {
     card.addEventListener('click', () => {
       let index = card.getAttribute('likeindex');
       LikeUnlike(photographerMedia, parseInt(index));
-      const totalLike = document.querySelector('.total-likes');
       totalLike.innerHTML = displayLikes(
         countTotalLikes(photographerMedia),
         true
       );
     });
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        let index = card.getAttribute('likeindex');
+        LikeUnlike(photographerMedia, parseInt(index));
+        totalLike.innerHTML = displayLikes(
+          countTotalLikes(photographerMedia),
+          true
+        );
+      }
+    });
   });
+  window.onkeydown = function (e) {
+    if (e.key === 'Tab') {
+      console.log('test');
+    }
+  };
 }
 
 export default async function init() {
