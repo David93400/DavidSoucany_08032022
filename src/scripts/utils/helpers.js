@@ -58,7 +58,7 @@ const displayLikes = (data, liked) => {
   return ` ${data} <i class="fa-solid fa-heart"></i>`;
 };
 
-const LikeUnlike = (media, index) => {
+const likeUnlike = (media, index) => {
   let liked;
   const likeText = document.querySelector(`[likeindex="${index}"]`);
 
@@ -75,5 +75,5 @@ export {
   createGenericElement,
   countTotalLikes,
   displayLikes,
-  LikeUnlike,
+  likeUnlike,
 };

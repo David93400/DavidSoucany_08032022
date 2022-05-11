@@ -13,13 +13,13 @@ const createLightbox = (title) => {
 };
 
 function closePictureModal() {
-  // document.querySelector('.media-card').blur();
-  document.querySelector('.modalPicture').remove();
-  document.querySelector('a').focus();
-  console.log(document.activeElement);
+  document.querySelector('.modalPicture')
+    ? document.querySelector('.modalPicture').remove()
+    : null;
 }
 
 const setLightbox = (data, index) => {
+  console.log(index);
   let content = '';
   let modalMedia = '';
   const { title } = data[index];
@@ -47,14 +47,11 @@ const setLightbox = (data, index) => {
     ]);
     modalMedia.appendChild(source);
   }
-
   createLightbox(title);
-
   const mediaModal = document.querySelector('.mySlides');
   const closeBtn = createGenericElement('i', '', 'fa-solid fa-xmark close');
   const previousBtn = createGenericElement('span', '<', 'prev');
   const nextBtn = createGenericElement('span', '>', 'next');
-
   const nextSlide = () => {
     closePictureModal();
     const nextIndex = index + 1;
@@ -63,7 +60,6 @@ const setLightbox = (data, index) => {
     }
     return setLightbox(data, 0);
   };
-
   const previousSlide = () => {
     closePictureModal();
     const nextIndex = index - 1;
@@ -72,8 +68,7 @@ const setLightbox = (data, index) => {
     }
     return setLightbox(data, data.length - 1);
   };
-
-  document.onkeydown = function (e) {
+  window.onkeydown = function (e) {
     if (e.key === 'ArrowRight' && document.querySelector('.modalPicture')) {
       nextSlide();
     } else if (
@@ -83,7 +78,6 @@ const setLightbox = (data, index) => {
       previousSlide();
     }
   };
-
   nextBtn.addEventListener('click', nextSlide);
   previousBtn.addEventListener('click', previousSlide);
   mediaModal.appendChild(closeBtn);
@@ -95,14 +89,11 @@ const setLightbox = (data, index) => {
   closeBtn.onclick = () => {
     closePictureModal();
   };
-  document.addEventListener('keydown', (e) => {
-    if (e.defaultPrevented) {
-      return;
-    }
+  document.onkeydown = function (e) {
     if (e.key === 'Escape') {
       closePictureModal();
+      document.querySelector(`[index="${index}"]`).focus();
     }
-    e.preventDefault();
-  });
+  };
 };
 export { setLightbox };

@@ -5,7 +5,7 @@ import {
   customFetch,
   countTotalLikes,
   displayLikes,
-  LikeUnlike,
+  likeUnlike,
 } from '../utils/helpers';
 import { setLightbox } from '../utils/lightbox';
 import photographerFactory from '../factories/photographerFactory';
@@ -84,13 +84,12 @@ async function displayMedia(photographerMedia) {
 
   const mediaCard = document.querySelectorAll('.photo, .video');
   mediaCard.forEach((card) => {
+    let index = card.getAttribute('index');
     card.addEventListener('click', () => {
-      let index = card.getAttribute('index');
       setLightbox(photographerMedia, parseInt(index));
     });
     card.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        let index = card.getAttribute('index');
         setLightbox(photographerMedia, parseInt(index));
       }
     });
@@ -99,9 +98,9 @@ async function displayMedia(photographerMedia) {
   const totalLike = document.querySelector('.total-likes');
   const likeCard = document.querySelectorAll('.photo-likes, .video-likes');
   likeCard.forEach((card) => {
+    let index = card.getAttribute('likeindex');
     card.addEventListener('click', () => {
-      let index = card.getAttribute('likeindex');
-      LikeUnlike(photographerMedia, parseInt(index));
+      likeUnlike(photographerMedia, parseInt(index));
       totalLike.innerHTML = displayLikes(
         countTotalLikes(photographerMedia),
         true
@@ -109,8 +108,7 @@ async function displayMedia(photographerMedia) {
     });
     card.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        let index = card.getAttribute('likeindex');
-        LikeUnlike(photographerMedia, parseInt(index));
+        likeUnlike(photographerMedia, parseInt(index));
         totalLike.innerHTML = displayLikes(
           countTotalLikes(photographerMedia),
           true
@@ -118,11 +116,6 @@ async function displayMedia(photographerMedia) {
       }
     });
   });
-  window.onkeydown = function (e) {
-    if (e.key === 'Tab') {
-      console.log('test');
-    }
-  };
 }
 
 export default async function init() {

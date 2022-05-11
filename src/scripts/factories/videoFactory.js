@@ -7,8 +7,7 @@ export default function videoFactory(media, i) {
     const videoContainer = createGenericElement(
       'div',
       null,
-      'video-container media-card',
-      [{ name: 'index', value: i }]
+      'video-container media-card'
     );
     const videoTitle = createGenericElement('h3', title, 'video-title');
     const numberLikes = createGenericElement('p', likes, 'video-likes', [

@@ -8,8 +8,7 @@ export default function photoFactory(media, i) {
     const photoContainer = createGenericElement(
       'div',
       null,
-      'photo-container media-card',
-      [{ name: 'index', value: i }]
+      'photo-container media-card'
     );
     const photoTitle = createGenericElement('h3', title, 'photo-title');
     const numberLikes = createGenericElement('p', likes, 'photo-likes', [
